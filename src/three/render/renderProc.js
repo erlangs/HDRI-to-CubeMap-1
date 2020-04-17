@@ -60,6 +60,8 @@ const packBlobsSep = (callback = href => { }, progress = prog => { }) => {
 const storeBlobsSep = (name, callback = href => { }, progress = prog => { }) => {
   procRenderer.domElement.toBlob(blob => {
     renderCatch.blobs.push(blob);
+    // renderCatch.names.push(`${name}.png`)
+    // Kerry
     renderCatch.names.push(`${name}.png`)
     renderCatch.progNow++;
     const { progNow, progTotal } = renderCatch;
@@ -86,34 +88,45 @@ const procRenderSep = (size = 64, callback = (href) => { }, progress = prog => {
   updateMaterial();
   procCamera.rotateY(-Math.PI / 2);
   procRenderer.render(mainScene, procCamera);
-  storeBlobsSep('px', callback, progress);
+  // storeBlobsSep('px', callback, progress);
+  // Kerry
+  storeBlobsSep('cube_r', callback, progress);
   //-x
   updateMaterial();
   procCamera.rotateY(Math.PI);
   procRenderer.render(mainScene, procCamera);
-  storeBlobsSep('nx', callback, progress);
+  // storeBlobsSep('nx', callback, progress);
+  // Kerry
+  storeBlobsSep('cube_l', callback, progress);
   //+y
   updateMaterial();
   procCamera.rotateY(-Math.PI / 2);
   procCamera.rotateX(Math.PI / 2);
   procRenderer.render(mainScene, procCamera);
-  storeBlobsSep('py', callback, progress);
+  // storeBlobsSep('py', callback, progress);
+  // Kerry
+  storeBlobsSep('cube_u', callback, progress);
   //-y
   updateMaterial();
   procCamera.rotateX(-Math.PI);
   procRenderer.render(mainScene, procCamera);
-  storeBlobsSep('ny', callback, progress);
+  // storeBlobsSep('ny', callback, progress);
+  // Kerry
+  storeBlobsSep('cube_d', callback, progress);
   //+z
   updateMaterial();
   procCamera.rotateX(Math.PI / 2);
   procRenderer.render(mainScene, procCamera);
-  storeBlobsSep('pz', callback, progress);
+  // storeBlobsSep('pz', callback, progress);
+  // Kerry
+  storeBlobsSep('cute_f', callback, progress);
   //-z
   updateMaterial();
   procCamera.rotateY(Math.PI);
   procRenderer.render(mainScene, procCamera);
-  storeBlobsSep('nz', callback, progress);
-
+  // storeBlobsSep('nz', callback, progress);
+  // Kerry
+  storeBlobsSep('cube_b', callback, progress);
   // packBlobs(callback);
 }
 const procRenderUnity = (size = 64, callback = href => { }, progress = prog => { }) => {
